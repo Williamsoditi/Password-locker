@@ -77,6 +77,13 @@ class TestCredentials(unittest.TestCase):
 
         self.assertEqual(test_credentials.accountname,found_credential.accountname)
     
+    #Test to display all credentials
+    def test_display_all_credentials(self):
+        '''
+        method that returns a list of all contacts saved
+        '''
+
+        self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
 
 
 if __name__ == '__main__':
