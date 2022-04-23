@@ -1,3 +1,4 @@
+from user import User
 class Credentials:
     '''
     Class that generates new instances of user credentials
@@ -13,4 +14,4 @@ class Credentials:
             login key: Account password
         '''
         self.accountname = accountname
-        self.login_key = login_pass
+        self.login_pass = login_pass
