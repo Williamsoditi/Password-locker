@@ -34,7 +34,7 @@ class TestCredentials(unittest.TestCase):
         self.new_credentials.save_credentials() # saving the new contact
         self.assertEqual(len(Credentials.credentials_list),1)
 
-    #Tear down method
+    #Tear down method - Works awesome
     def tearDown(self):
             '''
             tearDown method that does clean up after each test case has run.
@@ -50,6 +50,18 @@ class TestCredentials(unittest.TestCase):
             test_credentials = Credentials("Facebook","outta") # New instance of credentials
             test_credentials.save_credentials()
             self.assertEqual(len(Credentials.credentials_list),2)
+
+    #Test to delete credentials
+    def test_delete_credentials(self):
+            '''
+            test_delete_credentials to test deletion of credentials
+            '''
+            self.new_credentials.save_credentials()
+            test_credentials = Credentials("Gmail","2022MyYear") # new credentials added
+            test_credentials.save_credentials()
+
+            self.new_credentials.delete_credentials()# Deleting credentials
+            self.assertEqual(len(Credentials.credentials_list),1)
     
 
 
