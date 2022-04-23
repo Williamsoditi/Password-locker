@@ -2,6 +2,7 @@ class Credentials:
     '''
     Class that generates new instances of user credentials
     '''
+    credentials_list = [] #Empty credentials list
     def __init__(self,accountname,login_pass):
 
         '''
