@@ -4,7 +4,7 @@ class User:
     '''
     user_list = [] #Empty user list
 
-    def __init__(self,password, username):
+    def __init__(self,username,password):
 
         '''
         __init__ method that helps us define properties for our objects.
@@ -13,6 +13,5 @@ class User:
         Username: User name
         Password: Account password
         '''
-
-        self.password = password
         self.username = username
+        self.password = password
