@@ -226,13 +226,33 @@ def main():
                         else:
                             print(":( Sorry, It seems you have no saved credentials at the moment!")
 
+                    elif short_form == 'del':
+                            print("Enter account name whose credentials are to be deleted")
+                            accountname = input()
+                            account = find_credentials(accountname)
+                            del_credentials(account)
 
+                    elif short_form == 'cp':
+                        print("Enter account name you want to copy credentials")
+                        accountname = input()
+                        account = find_credentials(accountname)
+                        pyperclip.copy(account.accountname)
 
+                    elif short_form == 'ex':
+                            print("Are you leaving so soon?!")
+                            print("n/y?")
+                            answer = input().upper()
+                            if answer == 'y':
+                                print("Goodbye! We wish to see you again!")
+                                break
+                            elif answer == 'n':
+                                print("Please choose an option to continue:'cc' to create new credentials,'del' to delete a user credentials,'dc' to display credentials, 'ex' to exit the application")
+                                short_form = input().lower()
+                            else:
+                                print("We cannot process that. Choose specified actions!")
 
-
-
-    
-
+        else:
+            print("Choose a specified code to enjoy this application")
 
 if __name__ == '__main__':
     main()
