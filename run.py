@@ -1,4 +1,5 @@
 #!/usr/bin/env python3.8
+from email.policy import default
 import random, string, pyperclip
 from user import User
 from credentials import Credentials
@@ -68,6 +69,7 @@ def main():
         short_form = input().lower()
         print('\n')
         if short_form == 'sg':
+            
                             print("Enter UserName")
                             username = input()
 
@@ -158,16 +160,27 @@ def main():
 
                                     elif short_form == 'ex':
                                         print("Are you sure you want to EXIT !")
-                                        print("Y/N?")
+                                        print("y/n?")
                                         answer = input().upper()
-                                        if answer == 'Y':
+                                        if answer == 'y':
                                             print("Your details will be autosaved for the next login!")
                                             break
-                                        elif answer == 'N':
+                                        elif answer == 'n':
                                             print("Please choose an option to continue:'cc' to create new credentials,'del' to delete account credentials,'dc' to display credentials,'cp' to copy credential details to clipboard, 'ex' to exit the application")
                                             short_form = input().lower()
                                         else:
-                                            print("Choose a valid option!")
+                                            print("Could not find that argument. Please choose the selected choices!")
+
+        #Login section
+        elif short_form == "lg":
+            print("Enter your username")
+            default_username = input()
+            print("Enter your password")
+            default_password = input()
+
+            while default_password != "Mambas25" or default_username != "Williams":
+                print("Error ! Wrong details,please countercheck")
+
 
     
 
