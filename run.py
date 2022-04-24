@@ -61,8 +61,9 @@ def display_credentials():
 
 def main():
     print('Welcome to PASSWORD-LOCKER !')
+    print('\n')
     print('Please select an option to continue')
-    print('/n')
+    print('\n')
     while True:
         print("lg => to Login to your account")
         print("sg => to Sign-up and create an account.")
@@ -180,6 +181,54 @@ def main():
 
             while default_password != "Mambas25" or default_username != "Williams":
                 print("Error ! Wrong details,please countercheck")
+
+            else:
+                print("Successfully logged in!")
+                while True:
+                    print('Choose a specified option')
+                    print("cc => to create new credentials")
+                    print("dc => to display existing credentials")
+                    print("cp => to copy credential details to pyperclip clipboard")
+                    print("del => to delete account credentials")
+                    print("ex => to exit the application")
+                    short_form == input().lower()
+                    if short_form == "cc":
+                        print("Please enter your Account name")
+                        acc_name = input()
+
+                        while True:
+                            print("Choose an option to continue")
+                            print('\n')
+                            print("ek => to enter login key")
+                            print("gk => for a system generated key")
+                            print("ex => to exit this window")
+                            gen_key = input().lower()
+                            print('\n')
+                            if gen_key == 'ek':
+                                print("Enter a login key")
+                                log_key = input()
+                            elif gen_key == "gk":
+                                log_key = generate_loginkey()
+                                break
+                            elif gen_key == "ex":
+                                break
+                            else:
+                                print("Error ! Something fishy is in your input. Please check it")
+
+                        save_credentials(create_credentials(acc_name,log_key))
+                        print(f"Credentials include: {acc_name} and login key is {log_key}")
+                    
+                    elif short_form == "dc":
+                        if display_credentials():
+                            print("The following are your saved credentials")
+                            for credentials in display_credentials():
+                                print(f"{credentials.login_key} & {credentials.accountname}")
+                        else:
+                            print(":( Sorry, It seems you have no saved credentials at the moment!")
+
+
+
+
 
 
     
