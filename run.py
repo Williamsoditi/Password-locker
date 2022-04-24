@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.8
 from email.policy import default
-import random, string, pyperclip
+import random, string, pyperclip, emoji
 from user import User
 from credentials import Credentials
 
@@ -60,10 +60,10 @@ def display_credentials():
     return Credentials.display_credentials()
 
 def main():
-    print('Welcome to PASSWORD-LOCKER !')
+    print('Welcome to PASSWORD-LOCKER !',"\N{winking face}")
     print('\n')
     print('Please select an option to continue')
-    print('\n')
+    print("\n")
     while True:
         print("lg => to Login to your account")
         print("sg => to Sign-up and create an account.")
@@ -145,7 +145,7 @@ def main():
                                             for credentials in display_credentials():
                                                 print(f"{credentials.accountname} - {credentials.login_key}")
                                         else:
-                                            print(":( You dont have any saved credentials yet!")
+                                            print("You dont have any saved credentials yet!", "\n{smiling face}")
 
                                     elif short_form == 'cp':
                                         print("Enter account name whose credentials you want to copy!")
